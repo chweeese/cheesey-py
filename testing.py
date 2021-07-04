@@ -1,4 +1,4 @@
-from discord.ext.commands import Bot
+/from discord.ext.commands import Bot
 from discord_components import DiscordComponents, Button, ButtonStyle, InteractionType
 
 bot = Bot("!")
