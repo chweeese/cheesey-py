@@ -1,0 +1,5 @@
+discord
+PyNaCl
+discord-components
+datetime
+
