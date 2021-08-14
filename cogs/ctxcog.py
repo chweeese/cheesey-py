@@ -19,7 +19,7 @@ class CtxCog(commands.Cog):
    
     guild_ids = [848576409312165908]
 
-    @cog_ext.cog_slash(target=ContextMenuType.MESSAGE, name="Give me Mod", guild_ids=guild_ids)
+    @cog_ext.cog_context_menu(target=ContextMenuType.MESSAGE, name="Give me Mod", guild_ids=guild_ids)
     async def ctxtest(self, ctx: MenuContext):
         await ctx.send("banned",hidden=True)
 
