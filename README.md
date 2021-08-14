@@ -1,2 +1,2 @@
 # cheesey-py
- Bot to be up soon™ 
+ Bot is now live!

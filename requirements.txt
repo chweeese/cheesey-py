@@ -2,4 +2,4 @@ discord
 PyNaCl
 discord-components
 datetime
-
+discord-py-slash-command
