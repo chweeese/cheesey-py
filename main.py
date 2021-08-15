@@ -18,6 +18,14 @@ async def unload(ctx, extension):
     bot.unload_extension(f'cogs.{extension}')
     await ctx.send(f'Cog {extension} is now unloaded!')
 
+@bot.command()
+@commands.has_permissions(kick_members=True)
+async def reloadall(ctx):
+    for filename in os.listdir('./cogs'):
+        if filename.endswith('.py'):
+            bot.unload_extension(f'cogs.{filename[:-3]}')
+            bot.load_extension(f'cogs.{filename[:-3]}')
+
 @unload.error
 async def unload_error(self, ctx, error):
     if isinstance(error):
