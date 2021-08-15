@@ -5,12 +5,16 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix='$')
 
 @bot.command()
+@commands.has_permissions(ban_members=True)
 async def load(ctx, extension):
+    """Use this to load cogs. Usage: $load <cog_name>"""
     await ctx.send(f'Cog {extension} is now loaded!')
     bot.load_extension(f'cogs.{extension}')
 
 @bot.command()
+@commands.has_permissions(kick_members=True)
 async def unload(ctx, extension):
+    """Use this to unload cogs. Usage: $unload <cog_name>"""
     bot.unload_extension(f'cogs.{extension}')
     await ctx.send(f'Cog {extension} is now unloaded!')
 

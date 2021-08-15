@@ -12,6 +12,7 @@ class General(commands.Cog):
 
     @commands.command()
     async def ping(self, ctx):
+        """Use this to check ping! Usage: $ping"""
         await ctx.send(f"Pong! ({self.bot.latency*1000}ms)")
         
 
