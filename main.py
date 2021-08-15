@@ -25,6 +25,7 @@ async def reloadall(ctx):
         if filename.endswith('.py'):
             bot.unload_extension(f'cogs.{filename[:-3]}')
             bot.load_extension(f'cogs.{filename[:-3]}')
+            await ctx.send(f'Cog {filename[:-3]} is now reloaded!')
 
 @unload.error
 async def unload_error(self, ctx, error):
