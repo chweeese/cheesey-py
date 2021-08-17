@@ -1,4 +1,5 @@
 from discord_slash import SlashCommand
+from discord_slash import SlashContext
 from discord_slash import cog_ext
 
 import discord
