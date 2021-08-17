@@ -14,7 +14,8 @@ class Mods(commands.Cog):
     @commands.has_permissions(ban_members=True)
     async def purge(self, ctx, limit: int):
         """Use this to purge messages. Usage: $purge <amount>"""
-        if limit > 0 and limit < 100 :
+        if limit > 0 and limit < 98 :
+            limit = limit + 2
             await ctx.channel.purge(limit=limit-1)
             await ctx.send(limit + ' messages have been purged {}'.format(ctx.author.mention))
         elif limit > 100:
