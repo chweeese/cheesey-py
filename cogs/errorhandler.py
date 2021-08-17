@@ -46,8 +46,6 @@ async def export_exception(ctx, error):
     embed = discord.Embed()
     embed.title = "An error occured"
     embed.description = "The error has been reported to the devs"
-    log.warn(
-        f"Server level exception occured with messageID: {ctx.message.id}")
     await ctx.send(embed=embed)
 
 
@@ -57,7 +55,7 @@ class ErrorHandler(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        log.warn(f"{self.__class__.__name__} Cog has been loaded")
+        print("Errorhandler cog")
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
