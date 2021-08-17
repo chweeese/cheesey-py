@@ -15,9 +15,9 @@ class SlashCog(commands.Cog):
    
     guild_ids = [848576409312165908]
 
-    @cog_ext.cog_slash(name="test", guild_ids=guild_ids)
-    async def slashtest(self, ctx: SlashContext):
-        await ctx.send("Testing")
+    @cog_ext.cog_slash(name="linkoss", description="Remind Linkoss to drink tea!", guild_ids=guild_ids)
+    async def tea(self, ctx: SlashContext):
+        await ctx.send("<@359812392504524811> Reminder to drink tea")
 
 
 def setup(bot):
