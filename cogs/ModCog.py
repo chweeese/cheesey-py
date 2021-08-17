@@ -13,7 +13,7 @@ class Mods(commands.Cog):
     @commands.group(invoke_without_command=True)
     @commands.has_guild_permissions(manage_messages=True)
     async def purge(self, ctx,amount:int=10):
-        if amount >1000:
+        if amount >98:
             return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 1000.")
         deleted = await ctx.channel.purge(limit=amount+1)
         return await ctx.send(f"Deleted {len(deleted)-1} message(s)")
@@ -143,6 +143,5 @@ class Mods(commands.Cog):
                 return False
         deleted = await ctx.channel.purge(limit=100, check=check)
         return await ctx.send(f"Deleted {len(deleted)}/{amount} message(s) which contained invites")
-
 def setup(bot):
     bot.add_cog(Mods(bot))
