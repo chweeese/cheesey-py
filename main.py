@@ -19,8 +19,11 @@ async def on_ready():
 @commands.has_permissions(ban_members=True)
 async def load(ctx, extension):
     """Use this to load cogs. Usage: $load <cog_name>"""
-    await ctx.send(f'Cog {extension} is now loaded!')
-    bot.load_extension(f'cogs.{extension}')
+    try: 
+        await ctx.send(f'Cog {extension} is now loaded!')
+        bot.load_extension(f'cogs.{extension}')
+    except:
+        await ctx.send('Cog couldnt be unloaded')
 
 @bot.command()
 @commands.has_permissions(kick_members=True)
@@ -46,10 +49,10 @@ async def reloadall(ctx):
             bot.load_extension(f'cogs.{filename[:-3]}')
             await ctx.send(f'Cog {filename[:-3]} is now reloaded!')
 
-@unload.error
-async def unload_error(self, ctx, error):
-    if isinstance(error):
-        await ctx.send("Error with unloading")   
+#@unload.error
+#async def unload_error(ctx, error):
+ #   if isinstance(error):
+#        await ctx.send("Error with unloading")   
 
 
 for filename in os.listdir('./cogs'):
