@@ -17,7 +17,7 @@ class SlashCog(commands.Cog):
 
     @cog_ext.cog_slash(name="test", guild_ids=guild_ids)
     async def test(self, ctx: SlashContext):
-        await ctx.send(content="Testing")
+        await ctx.send("Testing")
 
 
 def setup(bot):
