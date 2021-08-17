@@ -4,6 +4,15 @@ from discord.ext import commands
 
 bot = commands.Bot(command_prefix='$')
 
+
+@bot.event
+async def on_ready(self):
+    activity = discord.Game(name="watching paneer", type=3)
+    await bot.change_presence(status=discord.Status.idle, activity=activity)
+    print("Bot is ready!")
+    print(f'Logged in as {self.user}! (Bot ID: {self.user.id})')
+    print('------')
+
 @bot.command()
 @commands.has_permissions(ban_members=True)
 async def load(ctx, extension):
