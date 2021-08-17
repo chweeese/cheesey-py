@@ -11,7 +11,6 @@ class CtxCog(commands.Cog):
     
     def __init__(self, bot):
         self.bot=bot
-        slash=SlashCommand(self.bot, sync_on_cog_reload=True) 
     
     @commands.Cog.listener()
     async def on_ready(self):
