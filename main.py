@@ -1,8 +1,10 @@
 import discord 
 import os
 from discord.ext import commands
+from discord_slash import SlashCommand
 
 bot = commands.Bot(command_prefix='$')
+slash=SlashCommand(bot, sync_on_cog_reload=True)
 
 
 @bot.event
@@ -26,6 +28,14 @@ async def unload(ctx, extension):
     """Use this to unload cogs. Usage: $unload <cog_name>"""
     bot.unload_extension(f'cogs.{extension}')
     await ctx.send(f'Cog {extension} is now unloaded!')
+
+@bot.command()
+@commands.has_permissions(ban_members=True)
+async def reload(ctx, extension):
+    """Use this to reload individual cogs. Usage: $reload <cog_name>"""
+    bot.unload_extension(f'cogs.{extension}')
+    bot.load_extension(f'cogs.{extension}')
+    await ctx.send(f'Cog {extension } is now reloaded!')
 
 @bot.command()
 @commands.has_permissions(kick_members=True)
