@@ -8,7 +8,7 @@ import os
 #Standards
 LOGGING_WEBHOOK=os.getenv("WARNLOG")
 
-async def webhook_send(url, message, username="LoggingCog",avatar="https://assets.stickpng.com/images/580b585b2edbce24c47b245d.png"):
+async def webhook_send(url, message, username="LoggingCog",avatar="https://i.imgur.com/2qbA4Vd.png"):
     async with aiohttp.ClientSession() as session:
         webhook = discord.Webhook.from_url(url, adapter=discord.AsyncWebhookAdapter(session))
         if isinstance(message, discord.Embed):
