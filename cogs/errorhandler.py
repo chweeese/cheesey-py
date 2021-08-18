@@ -67,7 +67,7 @@ class ErrorHandler(commands.Cog):
                          icon_url=self.bot.user.avatar_url)
         embed.set_author(name=f"{ctx.message.author.name}#{ctx.author.discriminator}",
                          icon_url=ctx.message.author.avatar_url)
-            return await ctx.send(embed=embed, delete_after=10)
+        return await ctx.send(embed=embed, delete_after=10)
         error = getattr(error, 'original', error)
 
         if isinstance(error, discord.errors.Forbidden):
