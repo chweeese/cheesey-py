@@ -25,7 +25,7 @@ class SlashCog(commands.Cog):
             await ctx.send("Linkoss has had enough tea already :slight_smile:")
 
     @cog_ext.cog_slash(name="ping", description="Check bot ping", guild_ids=guild_ids)
-    async def ping(self, ctx):
+    async def ping(self, ctx: SlashContext):
         await ctx.send(f"Pong! ({self.bot.latency*1000}ms)")
 
 def setup(bot):
