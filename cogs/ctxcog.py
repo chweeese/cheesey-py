@@ -22,6 +22,10 @@ class CtxCog(commands.Cog):
     async def ctxtest(self, ctx: MenuContext):
         await ctx.send("banned",hidden=True)
 
+    @cog_ext.cog_context_menu(target=ContextMenuType.USER, name="Userinfo", guild_ids=guild_ids)
+    async def info(self, ctx: MenuContext):
+        await ctx.send("banned",hidden=True)
+
 def setup(bot):
     bot.add_cog(CtxCog(bot))
 

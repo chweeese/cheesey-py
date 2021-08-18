@@ -14,6 +14,7 @@ async def on_ready():
     print("Bot is ready!")
     print(f'Logged in as {bot.user}! (Bot ID: {bot.user.id})')
     print('------')
+    await bot.load_extension(f'cogs.errorhandler')
 
 @bot.command()
 @commands.has_permissions(ban_members=True)
@@ -33,14 +34,14 @@ async def unload(ctx, extension):
     await ctx.send(f'Cog {extension} is now unloaded!')
 
 @bot.command()
-@commands.has_permissions(ban_members=True)
+@commands.has_permissions(administrator=True)
 async def reload(ctx, extension):
     """Use this to reload individual cogs. Usage: $reload <cog_name>"""
     bot.reload_extension(f'cogs.{extension}')
     await ctx.send(f'Cog {extension } is now reloaded!')
 
 @bot.command()
-@commands.has_permissions(kick_members=True)
+@commands.has_permissions(administrator=True)
 async def reloadall(ctx):
     for filename in os.listdir('./cogs'):
         if filename.endswith('.py'):
