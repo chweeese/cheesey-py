@@ -166,7 +166,18 @@ class ErrorHandler(commands.Cog):
         if isinstance(error, commands.errors.NSFWChannelRequired):
             embed.title=f"Command can only be executed in NSFW channels"
             embed.description=error.argument
-            return await ctx.send(embed=embed)                                
+            return await ctx.send(embed=embed)   
+
+        if isinstance(error, commands.error.ExtensionAlreadyLoaded):
+            embed.title=f"Cog is already loaded"
+            embed.description=error.argument
+            return await ctx.send(embed=embed)
+        
+        if isinstance(error, commands.error.ExtensionNotLoaded):
+            embed.title=f"Cog could not be loaded"
+            embed.description=error.argument
+            return await ctx.send(embed=embed)                            
+
         await export_exception(ctx, error)
         #raise error
 def setup(client):
