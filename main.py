@@ -14,7 +14,6 @@ async def on_ready():
     print("Bot is ready!")
     print(f'Logged in as {bot.user}! (Bot ID: {bot.user.id})')
     print('------')
-    await bot.load_extension(f'cogs.errorhandler')
 
 @bot.command()
 @commands.has_permissions(ban_members=True)
