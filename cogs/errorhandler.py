@@ -5,7 +5,7 @@ import traceback
 from io import StringIO
 from discord.ext import commands
 
-async def webhook_send(url, message, username="Cheesy error Logs", avatar="", f=None):
+async def webhook_send(url, message, username="Cheesy error Logs", avatar="https://cdn.discordapp.com/avatars/612900700992831490/a_aed9e51220f0fb70fc525ad29bc0cb08.gif", f=None):
     async with aiohttp.ClientSession() as session:
         webhook = discord.Webhook.from_url(
             url, adapter=discord.AsyncWebhookAdapter(session))
