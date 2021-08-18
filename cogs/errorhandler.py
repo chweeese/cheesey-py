@@ -173,7 +173,7 @@ class ErrorHandler(commands.Cog):
             return await ctx.send(embed=embed)
         
         if isinstance(error, commands.errors.ExtensionNotLoaded):
-            embed.title=f"Cog could not be loaded"
+            embed.title=f"Cog could not be found"
             return await ctx.send(embed=embed)                            
 
         await export_exception(ctx, error)
