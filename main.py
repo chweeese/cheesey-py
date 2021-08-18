@@ -19,11 +19,8 @@ async def on_ready():
 @commands.has_permissions(ban_members=True)
 async def load(ctx, extension):
     """Use this to load cogs. Usage: $load <cog_name>"""
-    try: 
-        await ctx.send(f'Cog {extension} is now loaded!')
-        bot.load_extension(f'cogs.{extension}')
-    except:
-        await ctx.send('Cog couldnt be unloaded')
+    await ctx.send(f'Cog {extension} is now loaded!')
+    bot.load_extension(f'cogs.{extension}')
 
 @bot.command()
 @commands.has_permissions(kick_members=True)
