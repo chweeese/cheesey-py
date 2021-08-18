@@ -168,12 +168,12 @@ class ErrorHandler(commands.Cog):
             embed.description=error.argument
             return await ctx.send(embed=embed)   
 
-        if isinstance(error, commands.error.ExtensionAlreadyLoaded):
+        if isinstance(error, commands.errors.ExtensionAlreadyLoaded):
             embed.title=f"Cog is already loaded"
             embed.description=error.argument
             return await ctx.send(embed=embed)
         
-        if isinstance(error, commands.error.ExtensionNotLoaded):
+        if isinstance(error, commands.errors.ExtensionNotLoaded):
             embed.title=f"Cog could not be loaded"
             embed.description=error.argument
             return await ctx.send(embed=embed)                            
