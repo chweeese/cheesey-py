@@ -106,7 +106,7 @@ class ErrorHandler(commands.Cog):
 
         if isinstance(error, commands.errors.CommandNotFound):
             embed.title = f"Specified command doesn't exist"
-            return
+            return await ctx.send(embed=embed)
 
         if isinstance(error, commands.errors.MemberNotFound):
             embed.title = f"Could not find the specified member"
