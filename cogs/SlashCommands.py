@@ -26,7 +26,7 @@ class SlashCog(commands.Cog):
 
     @cog_ext.cog_slash(name="ping", description="Check bot ping", guild_ids=guild_ids)
     async def ping(self, ctx: SlashContext):
-        await ctx.send(f"[Pong! ({self.bot.latency*1000}ms)](https://i.imgur.com/Bu3UvoQ.png) ",hidden=True)
+        await ctx.send(f"[Pong! ({self.bot.latency*1000}ms)](https://i.imgur.com/Bu3UvoQ.png) ** **",hidden=True)
 
 def setup(bot):
     bot.add_cog(SlashCog(bot))
