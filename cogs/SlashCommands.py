@@ -24,15 +24,6 @@ class SlashCog(commands.Cog):
         else:
             await ctx.send("Linkoss has had enough tea already :slight_smile:")
 
-    @cog_ext.cog_slash(name="delete", description="Delete linkoss", guild_ids=guild_ids)
-    async def tea(self, ctx: SlashContext):
-        i = 1
-        if i <= 9:
-            i = i+1
-            await ctx.send("<@359812392504524811> Delete")
-        else:
-            await ctx.send("Linkoss has had enough tea already :slight_smile:")
-
     @cog_ext.cog_slash(name="ping", description="Check bot ping", guild_ids=guild_ids)
     async def ping(self, ctx: SlashContext):
         await ctx.send(f"Pong! ({self.bot.latency*1000}ms)")
