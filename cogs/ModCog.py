@@ -23,7 +23,7 @@ class Mods(commands.Cog):
     @purge.command()
     @commands.has_guild_permissions(manage_messages=True)
     async def links(self, ctx, amount: int = 10):
-        if amount >1000:
+        if amount >100:
             return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 100.")
         global counter
         counter = 0
@@ -44,8 +44,8 @@ class Mods(commands.Cog):
     @purge.command()
     @commands.has_guild_permissions(manage_messages=True)
     async def startswith(self, ctx, key, amount: int = 10):
-        if amount >1000:
-            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 1000.")
+        if amount >100:
+            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 100.")
         global counter
         counter = 0
 
@@ -65,8 +65,8 @@ class Mods(commands.Cog):
     @purge.command()
     @commands.has_guild_permissions(manage_messages=True)
     async def endswith(self, ctx, key, amount: int = 10):
-        if amount >1000:
-            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 1000.")
+        if amount >100:
+            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 100.")
         global counter
         counter = 0
 
@@ -86,8 +86,8 @@ class Mods(commands.Cog):
     @purge.command()
     @commands.has_guild_permissions(manage_messages=True)
     async def contains(self, ctx, key, amount: int = 10):
-        if amount >1000:
-            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 1000.")
+        if amount >100:
+            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 100.")
         global counter
         counter = 0
 
@@ -107,8 +107,8 @@ class Mods(commands.Cog):
     @purge.command()
     @commands.has_guild_permissions(manage_messages=True)
     async def user(self, ctx, user: discord.Member, amount: int = 10):
-        if amount >1000:
-            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 1000.")
+        if amount >100:
+            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 100.")
         global counter
         counter = 0
 
@@ -128,8 +128,8 @@ class Mods(commands.Cog):
     @purge.command()
     @commands.has_guild_permissions(manage_messages=True)
     async def invites(self, ctx, amount: int = 10):
-        if amount >1000:
-            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 1000.")
+        if amount >100:
+            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 100.")
         global counter
         counter = 0
 
