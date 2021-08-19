@@ -2,6 +2,7 @@ import discord
 import re
 from discord.enums import ActivityType, Status
 from discord.ext import commands
+from pip._vendor.progress import counter
 
 class Mods(commands.Cog):
     
@@ -13,9 +14,9 @@ class Mods(commands.Cog):
 
     @commands.group(invoke_without_command=True)
     @commands.has_guild_permissions(manage_messages=True)
-    async def purge(self, ctx,amount:int=10):
-        if amount >98:
-            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 1000.")
+    async def purge(self, ctx, amount:int=10):
+        if amount >100:
+            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 100.")
         deleted = await ctx.channel.purge(limit=amount+1)
         return await ctx.send(f"Deleted {len(deleted)-1} message(s)")
 
@@ -23,7 +24,7 @@ class Mods(commands.Cog):
     @commands.has_guild_permissions(manage_messages=True)
     async def links(self, ctx, amount: int = 10):
         if amount >1000:
-            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 1000.")
+            return await ctx.send("Purge limit exceeded. Please provide an integer which is less than or equal to 100.")
         global counter
         counter = 0
 
