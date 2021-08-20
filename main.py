@@ -5,6 +5,7 @@ from discord_slash import SlashCommand
 
 bot = commands.Bot(command_prefix='$')
 slash=SlashCommand(bot, sync_on_cog_reload=True)
+#bot.remove_command('help')
 
 
 @bot.event
@@ -44,11 +45,8 @@ async def reloadall(ctx):
             bot.reload_extension(f'cogs.{filename[:-3]}')
             await ctx.send(f'Cog {filename[:-3]} is now reloaded!')
 
-#@unload.error
-#async def unload_error(ctx, error):
- #   if isinstance(error):
-#        await ctx.send("Error with unloading")   
-
+#@bot.command()
+#async def help(ctx)
 
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):

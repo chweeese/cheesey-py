@@ -55,6 +55,7 @@ class ErrorHandler(commands.Cog):
         embed.set_footer(text=self.bot.user.display_name,icon_url=self.bot.user.avatar_url)
         embed.set_author(name=ctx.message.author.display_name,icon_url=ctx.message.author.avatar_url)
         error = getattr(error, 'original', error)
+        return await ctx.send(embed=embed, delete_after=20)
 
 
         if isinstance(error, discord.errors.Forbidden):
