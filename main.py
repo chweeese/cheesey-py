@@ -3,7 +3,7 @@ import os
 from discord.ext import commands
 from discord_slash import SlashCommand
 
-bot = commands.Bot(command_prefix='$')
+bot = commands.Bot(command_prefix='$','@cheesey#6908','@cheesey#6908 ')
 slash=SlashCommand(bot, sync_on_cog_reload=True)
 #bot.remove_command('help')
 
