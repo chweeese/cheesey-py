@@ -29,7 +29,7 @@ class SlashCog(commands.Cog):
     async def ping(self, ctx: SlashContext):
         await ctx.send(f"🏓 ({self.bot.latency*1000}ms)",hidden=True)
 
-    @cog_ext.cog_slash(name="roles",description="Command for weeekly roles!",options=[create_option(name="role",description="Use this to select your role.",option_type=4,required=True,
+    @cog_ext.cog_slash(name="roles",description="Command for weeekly roles!",options=[create_option(name="role",description="Use this to select your role.",option_type=3,required=True,
                  choices=
                  [
                   create_choice(
