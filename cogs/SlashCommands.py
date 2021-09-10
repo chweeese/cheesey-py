@@ -1,5 +1,5 @@
 from discord_slash import cog_ext, SlashContext, SlashCommand
-
+from discord_slash.utils.manage_commands import create_option, create_choice
 import discord
 
 from discord.ext import commands
@@ -27,6 +27,29 @@ class SlashCog(commands.Cog):
     @cog_ext.cog_slash(name="ping", description="Check bot ping", guild_ids=guild_ids)
     async def ping(self, ctx: SlashContext):
         await ctx.send(f"🏓 ({self.bot.latency*1000}ms)",hidden=True)
+
+    @cog_ext.cog_slash(name="test",
+             description="This is just a test command, nothing more.",
+             options=[
+               create_option(
+                 name="optone",
+                 description="This is the first option we have.",
+                 option_type=3,
+                 required=False,
+                 choices=[
+                  create_choice(
+                    name="ChoiceOne",
+                    value="DOGE!"
+                  ),
+                  create_choice(
+                    name="ChoiceTwo",
+                    value="NO DOGE"
+                  )
+                ]
+               )
+             ])
+    async def test(ctx, optone: str):
+        await ctx.send(f"Wow, you actually chose {optone}? :(")
 
 def setup(bot):
     bot.add_cog(SlashCog(bot))
