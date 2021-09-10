@@ -44,17 +44,14 @@ class SlashCog(commands.Cog):
                 ])], guild_ids=guild_ids )
     async def giverole(self, ctx, role: int):
         author_id = ctx.author.id if isinstance(ctx.author, discord.Member) else ctx.author
-        role_name=0
         if role == 1:
-            role_name="templizard"
             weeklyrole1 = get(ctx.guild.roles, id=884332552838611005)
             await author_id.add_roles(weeklyrole1)
-            await ctx.send(f"You now have the role{role_name}")
+            await ctx.send(f"You now have the role<!@884332552838611005>")
         elif role == 2:
-            role_name="no smoking"
-            weeklyrole1 = get(ctx.guild.roles, id=884332449637740574)
-            await author_id.add_roles(weeklyrole1)
-            await ctx.send(f"You now have the role{role_name}")
+            weeklyrole2 = get(ctx.guild.roles, id=884332449637740574)
+            await author_id.add_roles(weeklyrole2)
+            await ctx.send(f"You now have the role <!@884332449637740574>")
 
 def setup(bot):
     bot.add_cog(SlashCog(bot))
