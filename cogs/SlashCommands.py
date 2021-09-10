@@ -47,11 +47,11 @@ class SlashCog(commands.Cog):
         member = ctx.author.id if isinstance(ctx.author, discord.Member) else ctx.author
         if rolename == "wr1":
             weeklyrole1 = get(ctx.guild.roles, id=884332552838611005)
-            await ctx.member.add_roles(weeklyrole1)
+            await ctx.author.add_roles(weeklyrole1)
             await ctx.send(f"You now have the role<!@884332552838611005>")
         elif rolename == "wr2":
             weeklyrole2 = get(ctx.guild.roles, id=884332449637740574)
-            await ctx.member.add_roles(weeklyrole2)
+            await ctx.author.add_roles(weeklyrole2)
             await ctx.send(f"You now have the role <!@884332449637740574>")
 
 def setup(bot):
