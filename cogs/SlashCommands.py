@@ -13,7 +13,7 @@ class SlashCog(commands.Cog):
     async def on_ready(self):
         print('Slash Commands cog is now live!')
    
-    guild_ids = [848576409312165908]
+    guild_ids = [848576409312165908,848098024164294657]
 
     @cog_ext.cog_slash(name="linkoss", description="Remind Linkoss to drink tea!", guild_ids=guild_ids)
     async def tea(self, ctx: SlashContext):
@@ -28,28 +28,28 @@ class SlashCog(commands.Cog):
     async def ping(self, ctx: SlashContext):
         await ctx.send(f"🏓 ({self.bot.latency*1000}ms)",hidden=True)
 
-    @cog_ext.cog_slash(name="test",
-             description="This is just a test command, nothing more.",
+    @cog_ext.cog_slash(name="roles",
+             description="Command for weeekly roles!",
              options=[
                create_option(
-                 name="optone",
-                 description="This is the first option we have.",
+                 name="role",
+                 description="Use this to select your role.",
                  option_type=3,
-                 required=False,
+                 required=True,
                  choices=[
                   create_choice(
-                    name="ChoiceOne",
+                    name="templizard",
                     value="DOGE!"
                   ),
                   create_choice(
-                    name="ChoiceTwo",
+                    name="no smoking",
                     value="NO DOGE"
                   )
                 ]
                )
              ], guild_ids=guild_ids )
-    async def test(ctx, optone: str):
-        await ctx.send(f"Wow, you actually chose {optone}? :(")
+    async def test(ctx, role: str):
+        await ctx.send(f"Wow, you actually chose {role}? :(")
 
 def setup(bot):
     bot.add_cog(SlashCog(bot))
