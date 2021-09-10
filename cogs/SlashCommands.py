@@ -1,3 +1,4 @@
+from discord import member
 from discord_slash import cog_ext, SlashContext, SlashCommand
 from discord_slash.utils.manage_commands import create_option, create_choice
 import discord
@@ -43,14 +44,14 @@ class SlashCog(commands.Cog):
                   )
                 ])], guild_ids=guild_ids )
     async def giverole(self, ctx, rolename: str):
-        author_id = ctx.author.id if isinstance(ctx.author, discord.Member) else ctx.author
+        member = ctx.author.id if isinstance(ctx.author, discord.Member) else ctx.author
         if rolename == "wr1":
             weeklyrole1 = get(ctx.guild.roles, id=884332552838611005)
-            await ctx.guild.add_roles(author_id, weeklyrole1)
+            await ctx.member.add_roles(weeklyrole1)
             await ctx.send(f"You now have the role<!@884332552838611005>")
         elif rolename == "wr2":
             weeklyrole2 = get(ctx.guild.roles, id=884332449637740574)
-            await ctx.guild.add_roles(author_id, weeklyrole2)
+            await ctx.member.add_roles(weeklyrole2)
             await ctx.send(f"You now have the role <!@884332449637740574>")
 
 def setup(bot):
