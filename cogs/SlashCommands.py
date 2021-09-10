@@ -41,7 +41,7 @@ class SlashCog(commands.Cog):
                     value="2"
                   )
                 ])], guild_ids=guild_ids )
-    async def giverole(ctx, role: int):
+    async def giverole(self, ctx, role: int):
         author_id = ctx.author.id if isinstance(ctx.author, discord.Member) else ctx.author
 
         if role == 1:
