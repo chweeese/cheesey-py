@@ -49,11 +49,12 @@ class SlashCog(commands.Cog):
             role_name="templizard"
             weeklyrole1 = get(ctx.guild.roles, id=884332552838611005)
             await author_id.add_roles(weeklyrole1)
+            await ctx.send(f"You now have the role{role_name}")
         elif role == 2:
             role_name="no smoking"
             weeklyrole1 = get(ctx.guild.roles, id=884332449637740574)
             await author_id.add_roles(weeklyrole1)
-        await ctx.send(f"You now have the role{role_name}")
+            await ctx.send(f"You now have the role{role_name}")
 
 def setup(bot):
     bot.add_cog(SlashCog(bot))
