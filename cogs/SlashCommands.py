@@ -28,28 +28,27 @@ class SlashCog(commands.Cog):
     async def ping(self, ctx: SlashContext):
         await ctx.send(f"🏓 ({self.bot.latency*1000}ms)",hidden=True)
 
-    @cog_ext.cog_slash(name="roles",
-             description="Command for weeekly roles!",
-             options=[
-               create_option(
-                 name="role",
-                 description="Use this to select your role.",
-                 option_type=3,
-                 required=True,
-                 choices=[
+    @cog_ext.cog_slash(name="roles",description="Command for weeekly roles!",options=[create_option(name="role",description="Use this to select your role.",option_type=4,required=True,
+                 choices=
+                 [
                   create_choice(
                     name="templizard",
-                    value="DOGE!"
-                  ),
+                    value="1"
+                  )
+                  ,
                   create_choice(
                     name="no smoking",
-                    value="NO DOGE"
+                    value="2"
                   )
-                ]
-               )
-             ], guild_ids=guild_ids )
-    async def test(ctx, role: str):
-        await ctx.send(f"Wow, you actually chose {role}? :(")
+                ])], guild_ids=guild_ids )
+    async def giverole(ctx, role: int):
+        author_id = ctx.author.id if isinstance(ctx.author, discord.Member) else ctx.author
+
+        if role == 1:
+            role_name="templizard"
+        elif role == 2:
+            role_name="no smoking"
+        await ctx.send(f"You now have the role{role_name}")
 
 def setup(bot):
     bot.add_cog(SlashCog(bot))
