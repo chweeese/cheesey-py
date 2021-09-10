@@ -47,7 +47,7 @@ class SlashCog(commands.Cog):
                   )
                 ]
                )
-             ])
+             ], guild_ids=guild_ids )
     async def test(ctx, optone: str):
         await ctx.send(f"Wow, you actually chose {optone}? :(")
 
