@@ -29,26 +29,26 @@ class SlashCog(commands.Cog):
     async def ping(self, ctx: SlashContext):
         await ctx.send(f"🏓 ({self.bot.latency*1000}ms)",hidden=True)
 
-    @cog_ext.cog_slash(name="roles",description="Command for weeekly roles!",options=[create_option(name="role",description="Use this to select your role.",option_type=3,required=True,
+    @cog_ext.cog_slash(name="roles",description="Command for weeekly roles!",options=[create_option(name="rolename",description="Use this to select your role.",option_type=3,required=True,
                  choices=
                  [
                   create_choice(
                     name="templizard",
-                    value="1"
+                    value="wr1"
                   )
                   ,
                   create_choice(
                     name="no smoking",
-                    value="2"
+                    value="wr2"
                   )
                 ])], guild_ids=guild_ids )
-    async def giverole(self, ctx, role: int):
+    async def giverole(self, ctx, rolename: str):
         author_id = ctx.author.id if isinstance(ctx.author, discord.Member) else ctx.author
-        if role == 1:
+        if rolename == "wr1":
             weeklyrole1 = get(ctx.guild.roles, id=884332552838611005)
             await author_id.add_roles(weeklyrole1)
             await ctx.send(f"You now have the role<!@884332552838611005>")
-        elif role == 2:
+        elif rolename == "wr2":
             weeklyrole2 = get(ctx.guild.roles, id=884332449637740574)
             await author_id.add_roles(weeklyrole2)
             await ctx.send(f"You now have the role <!@884332449637740574>")
