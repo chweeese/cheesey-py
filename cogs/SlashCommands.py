@@ -34,12 +34,12 @@ class SlashCog(commands.Cog):
                  choices=
                  [
                   create_choice(
-                    name="templizard",
+                    name="van gogh",
                     value="wr1"
                   )
                   ,
                   create_choice(
-                    name="no smoking",
+                    name="cherry blossus",
                     value="wr2"
                   )
                 ])], guild_ids=guild_ids )
@@ -48,7 +48,7 @@ class SlashCog(commands.Cog):
         if rolename == "wr1":
             weeklyrole1 = get(ctx.guild.roles, id=884332552838611005)
             await ctx.author.add_roles(weeklyrole1)
-            await ctx.send(f"You now have the role<@&884332552838611005>", hidden=True)
+            await ctx.send(f"You now have the role <@&884332552838611005>", hidden=True)
         elif rolename == "wr2":
             weeklyrole2 = get(ctx.guild.roles, id=884332449637740574)
             await ctx.author.add_roles(weeklyrole2)
