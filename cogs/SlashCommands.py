@@ -34,12 +34,12 @@ class SlashCog(commands.Cog):
                  choices=
                  [
                   create_choice(
-                    name="van gogh",
+                    name="midas middle finger",
                     value="wr1"
                   )
                   ,
                   create_choice(
-                    name="cherry blossus",
+                    name="cheese mannequin",
                     value="wr2"
                   )
                 ])], guild_ids=guild_ids )
